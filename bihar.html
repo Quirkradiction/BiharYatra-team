@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiharYatra | Plan Smart. Travel Bihar. Support Local.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #c84b31;       /* Terracotta heritage red */
+      --primary-dark: #9f341d;
+      --secondary: #d97706;     /* Turmeric marigold */
+      --accent: #2d6a4f;        /* Gangetic nature green */
+      --dark: #1e1b18;
+      --light: #faf7f2;          /* Warm parchment paper */
+      --card-bg: #ffffff;
+      --border: #eedccf;
+      --text-muted: #6b635b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--primary);
+    }
+    .brand-logo i {
+      font-size: 1.8rem;
+    }
+    .brand-logo span {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .brand-badge {
+      font-size: 0.7rem;
+      background: #fde8e4;
+      color: var(--primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-left: 0.4rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff !important;
+      padding: 0.6rem 1.3rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(200, 75, 49, 0.3);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(200, 75, 49, 0.45);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      padding: 4rem 1.5rem 6rem;
+      background: radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(200, 75, 49, 0.1) 0%, transparent 60%);
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-tagline {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      color: var(--dark);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* PLANNER CARD - FORM */
+    .planner-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      max-width: 1050px;
+      margin: -2.5rem auto 3rem;
+      position: relative;
+      z-index: 10;
+    }
+    .planner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      align-items: end;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: left;
+    }
+    .input-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .input-group select, .input-group input {
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: var(--light);
+      color: var(--dark);
+      outline: none;
+      transition: var(--transition);
+    }
+    .input-group select:focus, .input-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(200, 75, 49, 0.15);
+      background: #fff;
+    }
+    .budget-slider-box {
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 1rem;
+    }
+    .budget-slider-box .val-text {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* PROBLEM & SOLUTION SECTION */
+    .section-wrap {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .problem-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .problem-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .problem-icon {
+      width: 50px;
+      height: 50px;
+      background: #fde8e4;
+      color: var(--primary);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ITINERARY RESULT BOX */
+    #itinerarySection {
+      display: none;
+      margin-top: 3rem;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .itinerary-header {
+      background: linear-gradient(135deg, #2b2523, #151312);
+      color: white;
+      padding: 2.5rem;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .itinerary-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+    }
+    .itinerary-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #f3d4a0;
+    }
+    .budget-breakdown-card {
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border: 1px solid var(--border);
+      border-top: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .budget-item h5 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .budget-item p {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-top: 0.2rem;
+    }
+
+    .timeline {
+      background: #fff;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+    .day-block {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .day-block:last-child {
+      margin-bottom: 0;
+    }
+    .day-block::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 30px;
+      bottom: -30px;
+      width: 2px;
+      background: var(--border);
+    }
+    .day-block:last-child::before {
+      display: none;
+    }
+    .day-badge {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      box-shadow: 0 0 0 4px #fae1dc;
+    }
+    .day-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .day-tag {
+      font-size: 0.75rem;
+      background: #eef2eb;
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .day-card {
+      background: var(--light);
+      padding: 1.2rem;
+      border-radius: var(--radius-md);
+      margin-top: 0.8rem;
+      border: 1px solid #f0e6dd;
+    }
+    .day-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+    }
+    .pill {
+      font-size: 0.8rem;
+      background: #fff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      color: var(--dark);
+    }
+
+    /* EXPLORE CATEGORIES SECTION */
+    .filter-pills {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      padding: 0.6rem 1.4rem;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .dest-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .dest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .dest-img-wrap {
+      height: 180px;
+      background: #e9e3da;
+      position: relative;
+      overflow: hidden;
+    }
+    .dest-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .dest-card:hover .dest-img-wrap img {
+      transform: scale(1.05);
+    }
+    .dest-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+    }
+    .dest-badge.hidden-gem {
+      background: var(--accent);
+    }
+    .dest-body {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .dest-body h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .dest-loc {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .dest-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .dest-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      font-size: 0.85rem;
+    }
+    .dest-cost {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* HIDDEN BIHAR SPOTLIGHT */
+    .spotlight-box {
+      background: linear-gradient(135deg, #203a43, #0f2027);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+    @media (max-width: 800px) {
+      .spotlight-box { grid-template-columns: 1fr; }
+    }
+    .spotlight-content h3 {
+      font-size: 2.2rem;
+      color: #f3d4a0;
+      margin-bottom: 0.8rem;
+    }
+    .spotlight-content p {
+      color: #c9d6df;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    .spotlight-tags {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .spotlight-tag {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    /* SAVED PLANS DRAWER/MODAL */
+    .saved-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fdf5f0;
+      border: 1px dashed var(--primary);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #171513;
+      color: #b0a8a0;
+      padding: 4rem 1.5rem 2rem;
+      margin-top: 5rem;
+      border-top: 1px solid #2f2a26;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.6rem;
+    }
+    .footer-col ul li a {
+      color: #b0a8a0;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    .footer-col ul li a:hover {
+      color: var(--secondary);
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid #282420;
+      font-size: 0.85rem;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      header, .planner-card, .problem-grid, .spotlight-box, #explore, footer, .btn-no-print {
+        display: none !important;
+      }
+      #itinerarySection {
+        display: block !important;
+      }
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="navbar">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-compass"></i>
+        <span>BiharYatra</span>
+        <span class="brand-badge">TEJAS '26</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#planner">Smart Planner</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#hidden-bihar">Hidden Bihar</a></li>
+        <li><a href="#about">Why It Matters</a></li>
+        <li><button class="btn-primary" onclick="scrollToPlanner()"><i class="fa-solid fa-map-location-dot"></i> Plan My Trip</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tagline">Tejas India Hackathon 2026 • Bihar Tourism</span>
+      <h1>Plan Smart. Travel Bihar.<br><span style="color: var(--primary);">Support Local.</span></h1>
+      <p>A personalized, budget-friendly tourism planning platform tailored for Bihar. Generate customized daily itineraries based on your exact starting point, days, budget, and travel interests.</p>
+    </div>
+  </section>
+
+  <!-- SMART TRIP PLANNER FORM -->
+  <main class="section-wrap" id="planner" style="margin-top: -3.5rem;">
+    <div class="planner-card">
+      <h3 style="font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--dark);">
+        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary); margin-right: 0.4rem;"></i>
+        Generate Your Smart Yatra
+      </h3>
+      <form id="yatraForm">
+        <div class="planner-grid">
+          
+          <!-- Starting Point -->
+          <div class="input-group">
+            <label><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Starting From</label>
+            <select id="originCity" required>
+              <option value="Patna">Patna (Capital Hub)</option>
+              <option value="Gaya">Gaya / Bodh Gaya</option>
+              <option value="Bhagalpur">Bhagalpur (Silk City)</option>
+              <option value="Muzaffarpur">Muzaffarpur (North Bihar)</option>
+              <option value="Darbhanga">Darbhanga (Mithila Hub)</option>
+            </select>
+          </div>
+
+          <!-- Trip Days -->
+          <div class="input-group">
+            <label><i class="fa-regular fa-calendar" style="color: var(--secondary);"></i> Duration (Days)</label>
+            <select id="tripDays" required>
+              <option value="1">1 Day (Quick Getaway)</option>
+              <option value="2">2 Days (Weekend Tour)</option>
+              <option value="3" selected>3 Days (Ideal Circuit)</option>
+              <option value="4">4 Days (Extended Heritage)</option>
+              <option value="5">5 Days (Grand Bihar Yatra)</option>
+            </select>
+          </div>
+
+          <!-- Interests -->
+          <div class="input-group">
+            <label><i class="fa-solid fa-heart" style="color: #e63946;"></i> Primary Interest</label>
+            <select id="tripInterest" required>
+              <option value="History + Culture" selected>History + Culture</option>
+              <option value="Spirituality">Spirituality & Buddhist Circuit</option>
+              <option value="Nature + Wildlife">Nature & Eco-Tourism</option>
+              <option value="Food + Local Crafts">Food, Artisans & Mithila Art</option>
+            </select>
+          </div>
+
+          <!-- Budget Range -->
+          <div class="input-group">
+            <label><i class="fa-solid fa-indian-rupee-sign" style="color: var(--accent);"></i> Total Budget: <span id="budgetValue" class="val-text">₹3,000</span></label>
+            <div class="budget-slider-box">
+              <input type="range" id="tripBudget" min="1000" max="20000" step="500" value="3000" style="width: 100%; cursor: pointer;" oninput="updateBudgetText(this.value)">
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="input-group">
+            <button type="submit" class="btn-primary" style="height: 48px; justify-content: center; font-size: 1rem; width: 100%;">
+              <i class="fa-solid fa-bolt"></i> Generate Yatra
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <!-- ITINERARY OUTPUT SECTION -->
+    <section id="itinerarySection">
+      <div class="itinerary-header">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8;">Suggested Recommended Journey</span>
+          <h2 id="outTitle" style="font-size: 2rem; color: #fff; margin: 0.3rem 0;">3-Day Heritage & Culture Circuit</h2>
+          <div class="itinerary-meta">
+            <span id="outDays"><i class="fa-regular fa-clock"></i> 3 Days</span>
+            <span id="outBudget"><i class="fa-solid fa-coins"></i> Approx: ₹2,850</span>
+            <span id="outOrigin"><i class="fa-solid fa-map-pin"></i> Ex: Patna</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.8rem;" class="btn-no-print">
+          <button class="btn-primary" onclick="window.print()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);">
+            <i class="fa-solid fa-print"></i> Print Itinerary
+          </button>
+          <button class="btn-primary" onclick="saveCurrentPlan()">
+            <i class="fa-regular fa-bookmark"></i> Save Plan
+          </button>
+        </div>
+      </div>
+
+      <!-- Budget Estimator Breakdown -->
+      <div class="budget-breakdown-card">
+        <div class="budget-item">
+          <h5><i class="fa-solid fa-bus"></i> Transport</h5>
+          <p id="estTransport">₹800</p>
+        </div>
+        <div class="budget-item">
+          <h5><i class="fa-solid fa-bed"></i> Stay / Dorm</h5>
+          <p id="estStay">₹1,200</p>
+        </div>
+        <div class="budget-item">
+          <h5><i class="fa-solid fa-utensils"></i> Food & Chai</h5>
+          <p id="estFood">₹650</p>
+        </div>
+        <div class="budget-item">
+          <h5><i class="fa-solid fa-ticket"></i> Entry & Experiences</h5>
+          <p id="estEntry">₹200</p>
+        </div>
+        <div class="budget-item" style="border-left: 2px dashed var(--border);">
+          <h5 style="color: var(--primary);">Est. Total</h5>
+          <p id="estTotal" style="color: var(--primary);">₹2,850</p>
+        </div>
+      </div>
+
+      <!-- Daily Timeline -->
+      <div class="timeline" id="timelineContainer">
+        <!-- Generated by JS dynamically -->
+      </div>
+
+      <!-- Save Notification Drawer -->
+      <div class="saved-bar" id="saveNotice" style="display: none;">
+        <span><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 0.5rem;"></i> Plan saved successfully to local demo memory!</span>
+        <button onclick="clearSaved()" style="background: none; border: none; color: var(--primary); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Clear Saved</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- PROBLEM STATEMENT & MVP SOLUTION (Directly from Deck) -->
+  <section class="section-wrap" id="about">
+    <div class="section-header">
+      <span class="hero-tagline">The Tourism Dilemma & Our Fix</span>
+      <h2>Why BiharYatra Exists</h2>
+      <p>A tourism-rich state still needs easier, personalized trip planning for everyday travelers.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>Scattered Information</h3>
+        <p>Destination details, public transit routes, approximate costs, and guides require checking fragmented, outdated sources.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+        <h3>One-Size-Fits-All</h3>
+        <p>A static checklist of tourist spots fails to answer: <em>"What can I experience practically within my exact 3 days and ₹3,000 budget?"</em></p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <h3>Popular Places Dominate</h3>
+        <p>Crowds flock to common spots while stunning rural handicraft clusters, ecotourism, and ruins stay under-explored.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIDDEN BIHAR SPOTLIGHT -->
+  <section class="section-wrap" id="hidden-bihar">
+    <div class="spotlight-box">
+      <div class="spotlight-content">
+        <span style="color: #f3d4a0; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;">SPOTLIGHT FEATURE</span>
+        <h3>Discover "Hidden Bihar"</h3>
+        <p>We actively uplift lesser-known heritage and rural craft centers alongside world wonders. Spread tourism economy to local guides, homestays, and regional artisans.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag"><i class="fa-solid fa-tree"></i> Valmiki Tiger Reserve</span>
+          <span class="spotlight-tag"><i class="fa-solid fa-mountain"></i> Rohtasgarh Fort</span>
+          <span class="spotlight-tag"><i class="fa-solid fa-water"></i> Kakolat Falls</span>
+          <span class="spotlight-tag"><i class="fa-solid fa-palette"></i> Madhubani Village Artisans</span>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=600&q=80" alt="Bihar Heritage" style="width: 100%; border-radius: var(--radius-md); box-shadow: 0 10px 25px rgba(0,0,0,0.5); max-height: 280px; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE BIHAR: CATEGORY DESTINATIONS -->
+  <section class="section-wrap" id="explore">
+    <div class="section-header">
+      <span class="hero-tagline">Curated Catalog</span>
+      <h2>Explore Bihar By Experience</h2>
+      <p>Browse top heritage attractions, Buddhist trails, scenic spots, and local gastronomic delicacies.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-pills">
+      <button class="filter-btn active" onclick="filterCatalog('All')">All Destinations</button>
+      <button class="filter-btn" onclick="filterCatalog('History')">History & Monuments</button>
+      <button class="filter-btn" onclick="filterCatalog('Spirituality')">Spirituality</button>
+      <button class="filter-btn" onclick="filterCatalog('Nature')">Nature & Waterfalls</button>
+      <button class="filter-btn" onclick="filterCatalog('Food')">Gastronomy & Culture</button>
+    </div>
+
+    <!-- Catalog Grid -->
+    <div class="dest-grid" id="destCatalog">
+      <!-- Injected by JavaScript -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 style="font-family: 'Playfair Display'; color: #fff; font-size: 1.4rem;">BiharYatra</h4>
+        <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.6rem;">
+          Plan Smart. Travel Bihar. Support Local. An innovative, budget-conscious travel discovery web app developed for <strong>Tejas India Hackathon 2026</strong>.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Core Pillars</h4>
+        <ul>
+          <li><a href="#planner">Rule-Based Matching Logic</a></li>
+          <li><a href="#planner">Realistic Budget Estimator</a></li>
+          <li><a href="#hidden-bihar">Hidden Bihar Initiative</a></li>
+          <li><a href="#explore">Local Artisan Economy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Official Sources</h4>
+        <ul>
+          <li><a href="https://tourism.bihar.gov.in" target="_blank" rel="noreferrer">Bihar Tourism Official Portal</a></li>
+          <li><a href="https://incredibleindia.gov.in/en/bihar" target="_blank" rel="noreferrer">Incredible India: Bihar</a></li>
+          <li><a href="#">BSTDC Tour Packages</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tech Stack MVP</h4>
+        <p style="font-size: 0.85rem; line-height: 1.6;">
+          <strong>Frontend:</strong> HTML5, Responsive CSS3, Vanilla JavaScript<br>
+          <strong>State/Persistence:</strong> LocalStorage & Firebase Ready<br>
+          <strong>Design:</strong> Madhubani warm hues & modern typography.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 BiharYatra • Tejas India Hackathon • Bihar Tourism Domain. Built with passion for Incredible Bihar.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* ==========================================================
+       1. DESTINATION DATA REPOSITORY (Simulates Firebase Backend)
+       ========================================================== */
+    const destinationsDB = [
+      {
+        id: "nalanda",
+        name: "Nalanda Mahavihara Ruins",
+        city: "Nalanda",
+        category: "History",
+        cost: 150,
+        img: "https://images.unsplash.com/photo-1622396636133-ba43f812dd33?auto=format&fit=crop&w=500&q=80",
+        desc: "UNESCO World Heritage ancient seat of learning dating back to the 5th century CE.",
+        hiddenGem: false,
+        tag: "UNESCO Site"
+      },
+      {
+        id: "bodhgaya",
+        name: "Mahabodhi Temple Complex",
+        city: "Gaya",
+        category: "Spirituality",
+        cost: 100,
+        img: "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?auto=format&fit=crop&w=500&q=80",
+        desc: "The sacred site where Prince Siddhartha Gautama attained enlightenment under the Bodhi Tree.",
+        hiddenGem: false,
+        tag: "Spiritual Hub"
+      },
+      {
+        id: "rajgir",
+        name: "Rajgir Glass Bridge & Ropeway",
+        city: "Rajgir",
+        category: "Nature",
+        cost: 350,
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80",
+        desc: "Vishwa Shanti Stupa, scenic hills, hot springs, and India's thrilling glass skywalk.",
+        hiddenGem: false,
+        tag: "Eco Adventure"
+      },
+      {
+        id: "rohtas",
+        name: "Rohtasgarh Fort",
+        city: "Sasaram / Rohtas",
+        category: "History",
+        cost: 100,
+        img: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=500&q=80",
+        desc: "One of India's largest and most imposing hill forts, perched high in the Kaimur ranges.",
+        hiddenGem: true,
+        tag: "Hidden Gem"
+      },
+      {
+        id: "valmiki",
+        name: "Valmiki National Park",
+        city: "West Champaran",
+        category: "Nature",
+        cost: 450,
+        img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=500&q=80",
+        desc: "Bihar's only Tiger Reserve with lush Himalayan foothills, river rafting, and dense Sal forests.",
+        hiddenGem: true,
+        tag: "Hidden Gem"
+      },
+      {
+        id: "madhubani",
+        name: "Jitwarpur Artisan Village",
+        city: "Madhubani",
+        category: "Food",
+        cost: 50,
+        img: "https://images.unsplash.com/photo-1582560475093-ba66accbc424?auto=format&fit=crop&w=500&q=80",
+        desc: "Interact with national awardee Mithila painters and buy handmade traditional souvenirs directly.",
+        hiddenGem: true,
+        tag: "Art & Culture"
+      },
+      {
+        id: "patna-heritage",
+        name: "Patna Sahib & Bihar Museum",
+        city: "Patna",
+        category: "History",
+        cost: 200,
+        img: "https://images.unsplash.com/photo-1599837684838-89c0a6b7d27e?auto=format&fit=crop&w=500&q=80",
+        desc: "Birthplace of Guru Gobind Singh Ji paired with the world-class interactive Bihar Museum.",
+        hiddenGem: false,
+        tag: "Culture & Museum"
+      },
+      {
+        id: "vaishali",
+        name: "Vaishali Relic Stupa",
+        city: "Vaishali",
+        category: "History",
+        cost: 50,
+        img: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=500&q=80",
+        desc: "Birthplace of Lord Mahavira and world's earliest known republic (Licchavi).",
+        hiddenGem: false,
+        tag: "Heritage"
+      },
+      {
+        id: "litti-food",
+        name: "Maurya Lok & Food Trail",
+        city: "Patna",
+        category: "Food",
+        cost: 250,
+        img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80",
+        desc: "Taste authentic charcoal baked Litti Chokha, Khaja of Silao, and mouthwatering Bihari sweets.",
+        hiddenGem: false,
+        tag: "Gastronomy"
+      }
+    ];
+
+    /* ==========================================================
+       2. PLANNER LOGIC ENGINE (Deck Slide 5 & 6)
+       ========================================================== */
+    const planTemplates = {
+      Patna: [
+        {
+          title: "Day 1: Heart of Pataliputra & Modern Culture",
+          loc: "Patna",
+          items: ["Bihar Museum tour", "Golghar scenic view", "Takht Sri Patna Sahib", "Dinner: Famous Maurya Lok Litti Chokha"],
+          stay: "Budget Guest House / Hotel near Station",
+          costDist: { transport: 250, stay: 450, food: 300, entry: 150 }
+        },
+        {
+          title: "Day 2: Nalanda & Rajgir Heritage Trail",
+          loc: "Nalanda & Rajgir",
+          items: ["Nalanda Ruins UNESCO World Heritage site", "Hieun Tsang Memorial", "Rajgir Ropeway to Vishwa Shanti Stupa", "Hot water Sulphur Springs"],
+          stay: "BSTDC Tourist Bungalow Rajgir",
+          costDist: { transport: 350, stay: 550, food: 250, entry: 100 }
+        },
+        {
+          title: "Day 3: Bodh Gaya Enlightenment Circle",
+          loc: "Gaya",
+          items: ["Mahabodhi Temple & Holy Bodhi Tree", "Great Buddha 80ft Statue", "Thai & Tibetan Monasteries", "Local khaja & sweets shopping"],
+          stay: "Monastery Dormitory / Budget Lodge",
+          costDist: { transport: 300, stay: 400, food: 250, entry: 50 }
+        },
+        {
+          title: "Day 4: Republic of Vaishali & Nature",
+          loc: "Vaishali",
+          items: ["Ashokan Pillar & Relic Stupa", "Kundanpur (Lord Mahavira birthplace)", "Local Mango & Banana groves", "Evening boat ride along River Ganga"],
+          stay: "Patna / Vaishali Homestay",
+          costDist: { transport: 300, stay: 450, food: 250, entry: 50 }
+        },
+        {
+          title: "Day 5: Hidden Gems of Sasaram & Rohtas",
+          loc: "Sasaram",
+          items: ["Tomb of Sher Shah Suri (Afghan architecture)", "Trek towards Rohtasgarh Fort ramparts", "Local artisan brass handicraft market"],
+          stay: "Sasaram Local Lodge",
+          costDist: { transport: 400, stay: 450, food: 250, entry: 50 }
+        }
+      ]
+    };
+
+    // Budget range live display
+    function updateBudgetText(val) {
+      document.getElementById('budgetValue').innerText = `₹${Number(val).toLocaleString('en-IN')}`;
+    }
+
+    // Scroll to Planner
+    function scrollToPlanner() {
+      document.getElementById('planner').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Form submission
+    document.getElementById('yatraForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const origin = document.getElementById('originCity').value;
+      const days = parseInt(document.getElementById('tripDays').value, 10);
+      const budget = parseInt(document.getElementById('tripBudget').value, 10);
+      const interest = document.getElementById('tripInterest').value;
+
+      generateItinerary(origin, days, budget, interest);
+    });
+
+    function generateItinerary(origin, days, userBudget, interest) {
+      const section = document.getElementById('itinerarySection');
+      const timeline = document.getElementById('timelineContainer');
+      timeline.innerHTML = '';
+
+      // Set titles
+      document.getElementById('outTitle').innerText = `${days}-Day ${interest} Yatra`;
+      document.getElementById('outDays').innerHTML = `<i class="fa-regular fa-clock"></i> ${days} Days Duration`;
+      document.getElementById('outOrigin').innerHTML = `<i class="fa-solid fa-map-pin"></i> Origin: ${origin}`;
+
+      let runningTransport = 0;
+      let runningStay = 0;
+      let runningFood = 0;
+      let runningEntry = 0;
+
+      // Pull daily itinerary plans
+      const baseTemplates = planTemplates["Patna"];
+
+      for (let i = 0; i < days; i++) {
+        const dayData = baseTemplates[i % baseTemplates.length];
+        
+        // Scale costs according to days & budget feasibility
+        const dailyRatio = userBudget / (days * 1000);
+        const factor = Math.max(0.75, Math.min(dailyRatio, 1.4));
+
+        const dTransport = Math.round(dayData.costDist.transport * factor);
+        const dStay = Math.round(dayData.costDist.stay * factor);
+        const dFood = Math.round(dayData.costDist.food * factor);
+        const dEntry = Math.round(dayData.costDist.entry);
+
+        runningTransport += dTransport;
+        runningStay += dStay;
+        runningFood += dFood;
+        runningEntry += dEntry;
+
+        // Build Day Card
+        const dayEl = document.createElement('div');
+        dayEl.className = 'day-block';
+        dayEl.innerHTML = `
+          <div class="day-badge">${i + 1}</div>
+          <div class="day-title">
+            <span>Day ${i + 1}: ${dayData.loc}</span>
+            <span class="day-tag">${interest.split('+')[0]} & Local Excursions</span>
+          </div>
+          <div class="day-card">
+            <strong>${dayData.title}</strong>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">Recommended Stay: ${dayData.stay}</p>
+            <div class="day-highlights">
+              ${dayData.items.map(it => `<span class="pill"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 4px;"></i>${it}</span>`).join('')}
+            </div>
+          </div>
+        `;
+        timeline.appendChild(dayEl);
+      }
+
+      const totalEst = runningTransport + runningStay + runningFood + runningEntry;
+
+      // Populate breakdown counters
+      document.getElementById('estTransport').innerText = `₹${runningTransport.toLocaleString('en-IN')}`;
+      document.getElementById('estStay').innerText = `₹${runningStay.toLocaleString('en-IN')}`;
+      document.getElementById('estFood').innerText = `₹${runningFood.toLocaleString('en-IN')}`;
+      document.getElementById('estEntry').innerText = `₹${runningEntry.toLocaleString('en-IN')}`;
+      document.getElementById('estTotal').innerText = `₹${totalEst.toLocaleString('en-IN')}`;
+      document.getElementById('outBudget').innerHTML = `<i class="fa-solid fa-coins"></i> Approx Est: ₹${totalEst.toLocaleString('en-IN')}`;
+
+      // Warn if user budget is under-budget
+      if (totalEst > userBudget) {
+        document.getElementById('estTotal').style.color = '#c84b31';
+        document.getElementById('estTotal').innerHTML += `<br><span style="font-size: 0.75rem; font-weight: normal; color: #c84b31;">(Slightly above ₹${userBudget} budget; select dormitory stays or shared autos)</span>`;
+      } else {
+        document.getElementById('estTotal').style.color = 'var(--accent)';
+      }
+
+      // Show Section with smooth scroll
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ==========================================================
+       3. CATALOG DISPLAY & FILTERING (History, Nature, etc.)
+       ========================================================== */
+    function renderCatalog(items) {
+      const container = document.getElementById('destCatalog');
+      container.innerHTML = '';
+
+      items.forEach(dest => {
+        const card = document.createElement('div');
+        card.className = 'dest-card';
+        card.innerHTML = `
+          <div class="dest-img-wrap">
+            <img src="${dest.img}" alt="${dest.name}" loading="lazy">
+            <span class="dest-badge ${dest.hiddenGem ? 'hidden-gem' : ''}">${dest.tag}</span>
+          </div>
+          <div class="dest-body">
+            <div class="dest-loc"><i class="fa-solid fa-location-dot"></i> ${dest.city}, Bihar</div>
+            <h4>${dest.name}</h4>
+            <p>${dest.desc}</p>
+            <div class="dest-footer">
+              <span>Avg Entry / Exp:</span>
+              <span class="dest-cost">₹${dest.cost}</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCatalog(category) {
+      // Update button active state
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (category === 'All') {
+        renderCatalog(destinationsDB);
+      } else {
+        const filtered = destinationsDB.filter(d => d.category.toLowerCase() === category.toLowerCase());
+        renderCatalog(filtered);
+      }
+    }
+
+    /* ==========================================================
+       4. LOCAL SAVER ENGINE (Firebase Local Prototype)
+       ========================================================== */
+    function saveCurrentPlan() {
+      const planInfo = {
+        title: document.getElementById('outTitle').innerText,
+        total: document.getElementById('estTotal').innerText,
+        date: new Date().toLocaleDateString()
+      };
+      localStorage.setItem('biharYatra_lastPlan', JSON.stringify(planInfo));
+      const notice = document.getElementById('saveNotice');
+      notice.style.display = 'flex';
+      setTimeout(() => {
+        notice.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    function clearSaved() {
+      localStorage.removeItem('biharYatra_lastPlan');
+      document.getElementById('saveNotice').style.display = 'none';
+      alert('Saved plans cleared from browser memory.');
+    }
+
+    // Initial Catalog load on launch
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog(destinationsDB);
+      // Automatically trigger 3 days Patna demo (matching the hackathon slide 6)
+      generateItinerary('Patna', 3, 3000, 'History + Culture');
+    });
+  </script>
+</body>
+</html>
